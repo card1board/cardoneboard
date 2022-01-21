@@ -1,0 +1,75 @@
+---
+---
+
+@import "main";
+@use "sass:color";
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .round {
+    border-radius: 50%
+  }
+  
+  .button {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    flex-basis: 0;
+  }
+  
+  .pushable-area {
+    width: 94px;
+    height: 89px;
+    margin: auto;
+  }
+  
+  
+  .button-shape {
+    width: 94px;
+    height: 89px;
+    position: absolute;
+    background: url({{ 'assets/button_released.png' | relative_url }}) no-repeat
+  }
+  
+  .button-shape:active {
+    background: url({{ 'assets/button_pressed.png' | relative_url }}) no-repeat
+  }
+  
+  {% assign sounds = site.static_files | where: "sound", true %};
+  $numButtons: {{sounds.size}};
+
+  .button-skin {
+    background-color: rgb(random(255), random(255), random(255));
+    width: 86px;
+    height: 84px;
+    margin-top: 3px;
+    margin-left: 3px;
+    position: absolute;
+  }
+  @for $i from 0 to $numButtons {
+    .button:nth-child(#{$i}) .pushable-area .button-skin {
+      background-color: rgb(random(255), random(255), random(255));
+    }
+  }
+  
+  .button-shadow {
+    width: 94px;
+    height: 89px;
+    margin-bottom: 5px;
+    background: url({{ 'assets/button_base.png' | relative_url }}) no-repeat
+  }
+  
+  .button-text {
+    text-align: center;
+    position: relative;
+    word-wrap: break-word;
+  }
+
+  .large {
+    transform: scale(1.4);
+  }

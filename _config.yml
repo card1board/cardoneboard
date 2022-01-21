@@ -1,0 +1,10 @@
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/cardoneboard" # the subpath of your site, e.g. /blog
+title: "Cardone soundboard" # the name of your site, e.g. ACME Corp.
+defaults:
+  - scope:
+      path: "assets/sounds"
+    values:
+      sound: true
+sass:
+  style: compressed
