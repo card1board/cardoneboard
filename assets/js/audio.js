@@ -1,6 +1,5 @@
 function play(source) {
   var audio = document.body.appendChild(document.createElement('audio'));
-  console.log(audio)
   audio.src = source;
   audio.play();
   audio.addEventListener("ended", function() {
