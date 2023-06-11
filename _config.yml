@@ -8,3 +8,6 @@ defaults:
       sound: true
 sass:
   style: compressed
+exclude:
+  - .gitignore
+  - docker-compose.yml

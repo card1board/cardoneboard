@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  board:
+    ports:
+      - "80:4000"
+    image: jekyll/jekyll:4.2.0
+    command: bash -c "cp -r /tmp/jekyll /srv && jekyll serve --incremental"
+    volumes:
+    - type: bind
+      source: .
+      target: /tmp/jekyll
+      read_only: true
